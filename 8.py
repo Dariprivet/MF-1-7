@@ -1,7 +1,7 @@
 import numpy as np 
 N=3
-A = np.array([[1, 5, 1], [4, -1, 1], [4, 7, 24]])
-B = np.array([8, -1, 62])
+A = np.array([[1,5,1], [4,-1,1], [4,7,24]])
+B = np.array([8,-1,62])
 x = np.linalg.inv(A).dot(B)
 print('')
 print('X')
