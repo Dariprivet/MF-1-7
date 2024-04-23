@@ -1,11 +1,24 @@
-import sympy as sp
-x = sp.Symbol('x')
-f = (2*x**4) + (8*x**3) + (3*x**2 - 10*x) + 2
-f_prime = f.diff(x)
-extremum_points = sp.solve(f_prime, x)
-points = extremum_points + [-5, 5]
-values = [f.subs(x, point) for point in points]
-max_value = max(values)
-min_value = min(values)
-print("Наибольшее значение функции на отрезке [-5;5]:", max_value)
-print("Наименьшее значение функции на отрезке [-5;5]:", min_value)
+import numpy as np
+import matplotlib.pyplot as plt
+
+a0 = float(input("Введите a0: "))
+a1 = float(input("Введите a1: "))
+a2 = float(input("Введите a2: "))
+a3 = float(input("Введите a3: "))
+a4 = float(input("Введите a4: "))
+y = lambda x:(2*x**4) + (8*x**3) + (3*x**2 - 10*x) + 2
+print("y:", y)
+x = np.linspace(-5, 5, 42)
+print(' x y(x)')
+for temp in x :
+    print ( temp, y(temp))
+xmax = max(x,key=y)
+print('Xmax = ',xmax,end=' ')
+fmax = max(y(x))
+print('Ymax = ',fmax)
+xmin = min(x,key=y)
+print('Xmin = ',xmin,end=' ')
+fmin = min(y(x))
+print('Ymin = ',fmin)
+fig = plt.subplots()
+plt.plot(x, y(x))
