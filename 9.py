@@ -11,10 +11,8 @@ def seidel_method(A, b, initial_guess, tolerance=1e-10, max_iterations=1000):
             return x_new
         x = x_new
     raise ValueError("Seidel method did not converge")
-
 A = [[1, 5, 1], [4, -1, 1], [12, 12, 72]]
 b = [22, 46, 168]
 initial_guess = [0, 0, 0]
-
 solution = seidel_method(A, b, initial_guess)
 print("Solution:", solution)
