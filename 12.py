@@ -1,8 +1,5 @@
-# Определение функции
 def f(x):
-    return-260+121*x-12*x**2+x**3
-
-# Метод половинного деления
+ return-260+121*x-12*x**2+x**3
 def bisection_method(a, b, epsilon):
     while (b - a) >= epsilon:
         c = (a + b)/2
@@ -13,12 +10,8 @@ def bisection_method(a, b, epsilon):
         else:
             a = c
     return (a + b)/2
-
-# Заданные значения
 a = 0
 b = 3
 epsilon = 0.001
-
-# Вычисление корня полинома на отрезке [0,3] методом половинного деления
 root = bisection_method(a, b, epsilon)
 print("Корень полинома на отрезке [0,3] методом половинного деления:", root)
