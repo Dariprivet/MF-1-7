@@ -1,16 +1,23 @@
-m = 10
-A = [-3, 2, 5, -1, 0, 4, 7, -5, 2, 1]
-
-print("Исходный массив A:", A)
-
-positive_numbers = [num for num in A if num > 0]
-if len(positive_numbers) > 0:
-    min_positive = min(positive_numbers)
-    min_positive_index = A.index(min_positive)
+import random
+spisok = random.sample(range(13), 12) # 12 случайных чисел от 0 до 12
+if 0 in spisok and spisok[0] == 0:
+    product1 = 0
+    for number in spisok[:spisok.index(0)]:
+        product1 *= number
+    print("Массив:", spisok)
+    print("Произведение:", product1)
+    print("Сумма:", sum(spisok[spisok.index(0):]))
+elif 0 in spisok:
+    product1 = 1
+    for number in spisok[:spisok.index(0)]:
+        product1 *= number
+    print("Массив:", spisok)
+    print("Произведение:", product1)
+    print("Сумма:", sum(spisok[spisok.index(0):]))
 else:
-    min_positive = None
-    min_positive_index = None
-
-print("Минимальный положительный элемент:", min_positive)
-print("Индекс минимального положительного элемента:", min_positive_index)
-print("Количество положительных элементов:", len(positive_numbers))
+    product2 = 1
+    for number in spisok:
+        product2 *= number
+    print("Массив:", spisok)
+    print("Произведение всех чисел:", product2)
+    print("Сумма всех чисел:", sum(spisok))
