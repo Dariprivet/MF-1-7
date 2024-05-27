@@ -1,22 +1,24 @@
-import numpy as np
-
-G = int(input('Введи номер столбца: '))
-S = int(input('Введи номер строки: '))
-N = 3
-p = 2 * (S + G)
-m = -p + S
-A = [[p, m, 2*S], [m, 2*p+S, m], [2*S, m, p]]
-A = np.array(A) / 6
-print('Исходный массив A')
-for i in range(N):
-    for j in range(N):
-        print('%6.3f' % A[i][j], end='')
-    print('')
-L, X = np.linalg.eig(A)
-print('\nСобственные значения A:')
-print(L)
-print('\nСобственные векторы A:')
-for i in range(N):
-    for j in range(N):
-        print('%6.3f' % A[i][j], end=' ')
+def read_matrix_from_file(file_path):
+    with open(file_path, 'r') as file:
+        matrix = [list(map(int, line.split())) for line in file]
+    return matrix
+def find_min_in_column(matrix):
+    min_value = float(' inf')
+    min_index = -1
+    for i in range(len(matrix)):
+        sum_=0
+        for j in range(len(matrix[i])):
+            #print(matrix[i][j])
+            sum_+=abs(matrix[i][j])
+        #print(sum_ ,'- сумма')
+        if sum_< min_value:
+            min_value = sum_
+            min_index = i
+    return min_value, min_index
+def sum_of_abs_elements(row):
+    return sum(abs(x) for x in row)
+file_path = 'Kirill.txt'
+matrix = read_matrix_from_file(file_path)
+min_value, min_index = find_min_in_column(matrix)
+print (f"Элементы с наименьшей суммой: {matrix[min_index]}")=' ')
     print('')
