@@ -1,22 +1,17 @@
-N = int(input("Введите N: "))
-X = []
+def u_k(k, x):
+   return (-1)**(k+1)*(x**(k + 1)/k*(k + 1))))
 
-for i in range(0,5):
-    x = float(input("Введите x: "))
-    # print("type_x:", type(x))
-    X.append(x)
+def calculate_S(x, n):
+    S = 0
+    for k in range(1, n+1):
+        S += u_k(k, x)
+    return S
 
-#X=[0.1,0.3, 0.4, 0.7, 1]
-print(' -------------------------')
-print(' | x         |         s |')
-print(' -------------------------')
+x_values = [0.1, 0.3, 0.4, 0.7, 1.0]
+n = 10
 
-for x in X:
-    s = 0
-    u = -x
-    for k in range(1,N+1):
-        s += u/k
-    print(" | %8.4f | %8.4f |" % (x,s))
-
-print(' -------------------------')
-
+print("**********************")
+for x in x_values:
+    S = calculate_S(x, n)
+    print(f"X={x} S={S:.2f}")
+print("**********************")
