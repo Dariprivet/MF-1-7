@@ -1,14 +1,16 @@
-A = [x for x in range(1, 12)] #элемент слева - то, что кладем в массив.Справа - цикл перебора значений от 1 до 12
-#me = [] 
-#for x in range(1, 16):
-#    me.append(x)
-b = []
-for XI in range(len(A)):
-    if XI % 2 == 0:
-        b.append(A[XI]) # типа 2 соответствует индекс 1, поэтому ее мы добавляем в список 
-    else:
-        b.append(0)
-print(A, b, sum(b))  
-    print("Массив:", spisok)
-    print("Произведение всех чисел:", product2)
-    print("Сумма всех чисел:", sum(spisok))
+m = 10
+A = [-3, 2, 5, -1, 0, 4, 7, -5, 2, 1]
+
+print("Исходный массив A:", A)
+
+positive_numbers = [num for num in A if num > 0]
+if len(positive_numbers) > 0:
+    min_positive = min(positive_numbers)
+    min_positive_index = A.index(min_positive)
+else:
+    min_positive = None
+    min_positive_index = None
+
+print("Минимальный положительный элемент:", min_positive)
+print("Индекс минимального положительного элемента:", min_positive_index)
+print("Количество положительных элементов:", len(positive_numbers))
